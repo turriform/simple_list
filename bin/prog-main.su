@@ -1,0 +1,6 @@
+./src/main.c:20:9:add_element	48	static
+./src/main.c:31:10:odd	16	static
+./src/main.c:36:6:map	32	static
+./src/main.c:44:9:filter	64	static
+./src/main.c:92:6:print_int	32	static
+./src/main.c:97:5:main	64	static
