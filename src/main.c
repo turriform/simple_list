@@ -41,6 +41,7 @@ void map(node_t *head, void (*f)(node_t *elem))
     map(head->next, f);
 }
 
+
 node_t *filter(node_t *head, long int (*f)(node_t *elem))
 {
     node_t *cur = head;
@@ -94,6 +95,15 @@ void print_int(node_t *node)
     printf("%ld ", node->value);
 }
 
+void rec_print(node_t *node)
+{
+    if (!node)
+        return;
+    rec_print(node->next);    
+    print_int(node);
+  
+}
+
 int main()
 {
     node_t *head = add_element(data[0], NULL);
@@ -109,17 +119,17 @@ int main()
     map(head, print_int);
     printf("\n");
     node_t *new_head = filter(head, odd);
-    map(new_head, print_int);
+    rec_print(new_head);
     printf("\n");
     // freeing the rest
 
-    node_t *tmp = NULL; 
+    node_t *tmp = NULL;
     while (new_head)
-    {   tmp=new_head;
-        new_head=new_head->next;
+    {
+        tmp = new_head;
+        new_head = new_head->next;
         free(tmp);
     }
-    
 
     return 0;
 }
